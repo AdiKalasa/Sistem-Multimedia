@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Navigasi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        :root {
+            /* Light Theme */
+            --bg-light: #ffffff;
+            --surface-light: #f8f9fa;
+            --text-primary-light: #1a1a1a;
+            --text-secondary-light: #666666;
+            --border-light: #e0e0e0;
+            --accent-blue: #0066cc;
+            --accent-blue-light: #e6f0ff;
+            --accent-green: #00875a;
+            --accent-green-light: #e6f2ed;
+            
+            /* Dark Theme */
+            --bg-dark: #0f0f0f;
+            --surface-dark: #1a1a1a;
+            --text-primary-dark: #ffffff;
+            --text-secondary-dark: #a0a0a0;
+            --border-dark: #333333;
+            
+            /* Animation */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-primary-light);
+            min-height: 100vh;
+            transition: background-color var(--transition-normal), color var(--transition-normal);
+            line-height: 1.6;
+        }
+
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-primary-dark);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .title {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary-light);
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+
+        body.dark-mode .subtitle {
+            color: var(--text-secondary-dark);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: var(--surface-light);
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            z-index: 100;
+        }
+
+        body.dark-mode .theme-toggle {
+            background-color: var(--surface-dark);
+            border-color: var(--border-dark);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .theme-toggle i {
+            font-size: 1.2rem;
+            color: var(--text-secondary-light);
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .theme-toggle i {
+            color: var(--text-secondary-dark);
+        }
+
+        /* Button Grid */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Navigation Card */
+        .nav-card {
+            background-color: var(--surface-light);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 40px;
+            text-decoration: none;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+        }
+
+        body.dark-mode .nav-card {
+            background-color: var(--surface-dark);
+            border-color: var(--border-dark);
+        }
+
+        .nav-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: transparent;
+        }
+
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: transparent;
+            transition: background-color var(--transition-normal);
+        }
+
+        .nav-card.portfolio-card::before {
+            background-color: var(--accent-blue);
+        }
+
+        .nav-card.twibbox-card::before {
+            background-color: var(--accent-green);
+        }
+
+        .nav-card:hover::before {
+            height: 100%;
+            opacity: 0.03;
+        }
+
+        /* Card Content */
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            transition: all var(--transition-normal);
+        }
+
+        .portfolio-card .card-icon {
+            color: var(--accent-blue);
+        }
+
+        .twibbox-card .card-icon {
+            color: var(--accent-green);
+        }
+
+        .nav-card:hover .card-icon {
+            transform: scale(1.1);
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary-light);
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .card-title {
+            color: var(--text-primary-dark);
+        }
+
+        .card-description {
+            font-size: 1rem;
+            color: var(--text-secondary-light);
+            margin-bottom: 24px;
+            line-height: 1.6;
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .card-description {
+            color: var(--text-secondary-dark);
+        }
+
+        .card-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--text-secondary-light);
+            font-weight: 500;
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .card-indicator {
+            color: var(--text-secondary-dark);
+        }
+
+        .portfolio-card .card-indicator {
+            color: var(--accent-blue);
+        }
+
+        .twibbox-card .card-indicator {
+            color: var(--accent-green);
+        }
+
+        .card-indicator i {
+            font-size: 0.8rem;
+            transition: transform var(--transition-normal);
+        }
+
+        .nav-card:hover .card-indicator i {
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: auto;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-light);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+        }
+
+        body.dark-mode .footer {
+            border-color: var(--border-dark);
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary-light);
+            font-weight: 400;
+        }
+
+        body.dark-mode .footer-text {
+            color: var(--text-secondary-dark);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .header {
+                margin-bottom: 60px;
+            }
+
+            .title {
+                font-size: 2.2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+
+            .button-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .nav-card {
+                padding: 30px;
+            }
+
+            .theme-toggle {
+                top: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+            }
+
+            .nav-card {
+                padding: 24px;
+            }
+
+            .card-title {
+                font-size: 1.5rem;
+            }
+
+            .card-description {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Selection */
+        ::selection {
+            background-color: var(--accent-blue);
+            color: white;
+        }
+
+        body.dark-mode ::selection {
+            background-color: var(--accent-green);
+            color: var(--text-primary-dark);
+        }
+
+        /* Focus */
+        .nav-card:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+        }
+
+        body.dark-mode .nav-card:focus {
+            box-shadow: 0 0 0 3px rgba(0, 135, 90, 0.3);
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="title">Portal Navigasi</h1>
+            <p class="subtitle">Pilih destinasi untuk menjelajahi portofolio atau aplikasi</p>
+        </div>
+
+        <!-- Navigation Cards -->
+        <div class="button-grid">
+            <!-- Portfolio Card -->
+            <a href="./portofolio" class="nav-card portfolio-card">
+
+                <h2 class="card-title">Portfolio</h2>
+               
+    
+            </a>
+
+            <!-- Twibbox Card -->
+            <a href="./twibboroxx" class="nav-card twibbox-card">
+             
+                <h2 class="card-title">Twibbox</h2>
+                
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p class="footer-text">© 2024 Portal Navigasi • Simplify is Everything</p>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const body = document.body;
+
+        // Check for saved theme or prefer-color-scheme
+        function getPreferredTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                return savedTheme;
+            }
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        // Apply theme
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                body.classList.add('dark-mode');
+                themeIcon.className = 'fas fa-sun';
+                themeIcon.style.transform = 'rotate(180deg)';
+            } else {
+                body.classList.remove('dark-mode');
+                themeIcon.className = 'fas fa-moon';
+                themeIcon.style.transform = 'rotate(0deg)';
+            }
+            localStorage.setItem('theme', theme);
+        }
+
+        // Toggle theme
+        function toggleTheme() {
+            const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+            
+            // Add click animation
+            themeToggle.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                themeToggle.style.transform = 'scale(1)';
+            }, 150);
+        }
+
+        // Initialize theme
+        applyTheme(getPreferredTheme());
+
+        // Event Listeners
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                applyTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+
+        // Add ripple effect to navigation cards
+        document.querySelectorAll('.nav-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Create ripple element
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: ${this.classList.contains('portfolio-card') ? 'rgba(0, 102, 204, 0.2)' : 'rgba(0, 135, 90, 0.2)'};
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    width: ${size}px;
+                    height: ${size}px;
+                    top: ${y}px;
+                    left: ${x}px;
+                    pointer-events: none;
+                `;
+                
+                this.appendChild(ripple);
+                
+                // Remove ripple after animation
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add CSS for ripple animation
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const cards = document.querySelectorAll('.nav-card');
+            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const currentIndex = Array.from(cards).findIndex(card => card === document.activeElement);
+                let nextIndex;
+                
+                if (e.key === 'ArrowRight') {
+                    nextIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : 0;
+                } else {
+                    nextIndex = currentIndex > 0 ? currentIndex - 1 : cards.length - 1;
+                }
+                
+                cards[nextIndex].focus();
+            }
+            
+            if (e.key === 'Enter' && document.activeElement.classList.contains('nav-card')) {
+                document.activeElement.click();
+            }
+            
+            if (e.key === 't' && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                toggleTheme();
+            }
+        });
+
+        // Preload hover state
+        document.querySelectorAll('.nav-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.2s ease';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transition = 'all 0.3s ease';
+            });
+        });
+    </script>
+</body>
+</html>
