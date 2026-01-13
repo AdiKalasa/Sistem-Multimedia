@@ -1,0 +1,177 @@
+/* ============================================
+   TEMPLATE 1: MINIMALIS CLEAN
+   Category: Minimalis | Occasion: Umum | Tier: Free
+   ============================================ */
+.template-1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* Purple-Blue gradient untuk kesan professional dan clean */
+}
+
+/* ============================================
+   TEMPLATE 2: PROMO EXPLOSION
+   Category: Colorful | Occasion: Promo | Tier: Free
+   ============================================ */
+.template-2 {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    /* Pink-Red gradient untuk promo yang eye-catching */
+}
+
+/* ============================================
+   TEMPLATE 3: GRAND OPENING GOLD
+   Category: Elegant | Occasion: Grand Opening | Tier: Premium
+   ============================================ */
+.template-3 {
+    background: linear-gradient(135deg, #fad0c4 0%, #ffd1ff 100%);
+    /* Soft peach-pink untuk elegant grand opening */
+}
+
+/* ============================================
+   TEMPLATE 4: FUN PARTY
+   Category: Fun | Occasion: Promo | Tier: Free
+   ============================================ */
+.template-4 {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    /* Bright blue gradient untuk fun dan energetic vibe */
+}
+
+/* ============================================
+   TEMPLATE 5: NEW PRODUCT LAUNCH
+   Category: Minimalis | Occasion: New Product | Tier: Premium
+   ============================================ */
+.template-5 {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    /* Fresh green-cyan untuk new product yang fresh */
+}
+
+/* ============================================
+   TEMPLATE 6: ELEGANT BLACK
+   Category: Elegant | Occasion: Umum | Tier: Free
+   ============================================ */
+.template-6 {
+    background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+    /* Cyan-Purple dark untuk luxury elegant feel */
+}
+
+/* ============================================
+   TEMPLATE 7: COLORFUL FIESTA
+   Category: Colorful | Occasion: Promo | Tier: Premium
+   ============================================ */
+.template-7 {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    /* Pink-Yellow gradient untuk vibrant festive look */
+}
+
+/* ============================================
+   TEMPLATE 8: SIMPLE WHITE
+   Category: Minimalis | Occasion: Umum | Tier: Free
+   ============================================ */
+.template-8 {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    /* Soft cyan-pink untuk simple clean aesthetic */
+}
+
+/* ============================================
+   TEMPLATE 9: FUN GRADIENT
+   Category: Fun | Occasion: New Product | Tier: Free
+   ============================================ */
+.template-9 {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    /* Coral-pink gradient untuk playful fun design */
+}
+
+/* ============================================
+   TEMPLATE 10: PREMIUM GOLD
+   Category: Elegant | Occasion: Grand Opening | Tier: Premium
+   ============================================ */
+.template-10 {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    /* Peach-orange gradient untuk premium gold look */
+}
+
+/* ============================================
+   TEMPLATE 11: FRESH GREEN
+   Category: Minimalis | Occasion: New Product | Tier: Free
+   ============================================ */
+.template-11 {
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+    /* Light blue gradient untuk fresh minimalist */
+}
+
+/* ============================================
+   TEMPLATE 12: VIBRANT PINK
+   Category: Colorful | Occasion: Promo | Tier: Free
+   ============================================ */
+.template-12 {
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    /* Pink-purple gradient untuk vibrant colorful */
+}
+
+/* ============================================
+   ADDITIONAL PREMIUM TEMPLATES (BONUS)
+   ============================================ */
+
+/* Template 13: SUNSET DREAM (Premium) */
+.template-13 {
+    background: linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%);
+}
+
+/* Template 14: OCEAN BREEZE (Premium) */
+.template-14 {
+    background: linear-gradient(135deg, #2af598 0%, #009efd 100%);
+}
+
+/* Template 15: ROYAL PURPLE (Premium) */
+.template-15 {
+    background: linear-gradient(135deg, #7f00ff 0%, #e100ff 100%);
+}
+
+/* ============================================
+   USAGE EXAMPLE IN HTML:
+   ============================================ */
+
+/*
+<div class="template-preview template-1">
+    <!-- Content here -->
+</div>
+
+<div class="template-preview template-2">
+    <!-- Content here -->
+</div>
+*/
+
+/* ============================================
+   COMMON TEMPLATE STYLES
+   ============================================ */
+.template-preview {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Add overlay for better text readability */
+.template-preview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+}
+
+/* Gradient animation on hover */
+.template-preview:hover {
+    animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(10deg); }
+    100% { filter: hue-rotate(0deg); }
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twibbox Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="index.css">
+</head> 
+
+<body>
+
+  <div class="progress-dots" id="progressDots"></div>
+
+  <div class="slider" id="slider">
+
+    <section class="slide">
+      <h1>Twibbox</h1>
+      <p>Platform web untuk UMKM membuat desain twibbon dengan mudah. Menyediakan 50+ template, editor intuitif, dan
+        ekspor HD untuk konten promosi visual yang profesional.</p>
+    </section>
+
+    <section class="slide">
+      <h1>Tentang Twibbox</h1>
+      <p>Twibbox membantu UMKM mengatasi kesulitan membuat konten promosi visual dengan menyediakan template siap pakai,
+        editor gambar lengkap, dan sistem pencarian/filter. Dibangun dengan HTML/CSS/JS murni, tema space galaxy, dan
+        fitur export kualitas tinggi</p>
+      <div class="grid gridW">
+        <img src="asset/twibbon-Blue & Yellow Pngtree-1768286926150.png" class="card-image" alt="">
+        <img src="asset/twibbon-Builder _ Constructor-1768286943651.png" class="card-image" alt="">
+        <img src="asset/twibbon-Fruit-1768287662815.png" class="card-image" alt="">
+      </div>
+    </section>
+
+    <section class="slide">
+      <h1>Fitur Utama</h1>
+      <div class="grid">
+        <div class="card"
+          onclick="showFeature('Navigasi Slide', 'slide.webm', 'Perpindahan antar halaman dengan animasi halus dan modern menggunakan CSS transitions.')">
+          <video class="card-image" autoplay muted loop playsinline>
+            <source src="asset/slide.webm" type="video/webm">
+          </video>
+          <div class="card-content">
+            <h3>Smooth Navigation</h3>
+            <p>Klik untuk detail</p>
+          </div>
+        </div>
+        <div class="card"
+          onclick="showFeature('Responsive Layout', 'responsive.webm','Tampilan otomatis menyesuaikan ukuran layar perangkat dari mobile hingga desktop.')">
+          <video class="card-image" autoplay muted loop playsinline>
+            <source src="asset/responsive.webm" type="video/webm">
+          </video>
+          <div class="card-content">
+            <h3>Responsive</h3>
+            <p>Klik untuk detail</p>
+          </div>
+        </div>
+        <div class="card"
+          onclick="showFeature('Drag & Drop', 'dragNdrop.webm', 'Fitur interaksi drag and drop yang memungkinkan pengguna memindahkan elemen secara langsung dengan respons cepat dan intuitif tanpa reload halaman.')">
+          <video class="card-image" autoplay muted loop playsinline>
+            <source src="asset/dragNdrop.webm" type="video/webm">
+          </video>
+          <div class="card-content">
+            <h3>Drag & Drop</h3>
+            <p>Klik untuk detail</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h1>Gallery Media</h1>
+      <div class="">
+       
+        <div class="card" onclick="showVideo('Demo Aplikasi')">
+          <img src="asset/desktop2.png" class="card-image" alt="">
+          <div class="card-content">
+            <h3>Video - Demo App</h3>
+            <p>Lihat placeholder video</p>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <section class="slide">
+        <div class="about-container">
+          <div class="about-profile">
+            <img class="profile-image" src="asset/7Xism.jpg" alt="">
+            <div class="profile-info">
+              <h2>Adi Kalasa</h2>
+              <div class="role">Full Stack Developer & UI/UX Designer <span style="color: hsl(240, 18%, 20%);">(cuman tugas)</span></div>
+              <div class="profile-details">
+                <p><i class="fas fa-map-marker-alt" style="color: var(--accent); margin-right: 10px;"></i> Bekasi, Indonesia</p>
+                <p><i class="fas fa-graduation-cap" style="color: var(--accent); margin-right: 10px;"></i> Teknik Informatika - STMIK Mercusuar</p>
+                <p><i class="fas fa-code" style="color: var(--accent); margin-right: 10px;"></i> 1+ tahun pengembangan web</p>
+              </div>
+              <p style="color: var(--text-light); font-size: 1rem;">Saya adalah seorang developer dengan passion di bidang web development dan UI/UX design. Twibbox lahir dari keinginan untuk membantu UMKM Indonesia memiliki akses mudah ke alat desain promosi yang profesional dan terjangkau.</p>
+              <div class="social-links">
+                <a href="https://github.com/AdiKalasa" class="social-icon" target="_blank">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/AdiKalasa" class="social-icon" target="_blank">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://instagram.com/adikalasa" class="social-icon" target="_blank">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:mr.adikalasa@gmail.com" class="social-icon">
+                  <i class="fas fa-envelope"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+    </section>
+
+  </div>
+
+  <div class="nav">
+    <button onclick="prevSlide()">Prev</button>
+    <button onclick="nextSlide()">Next</button>
+  </div>
+
+  <div class="modal" id="modal" onclick="closeModal()">
+    <div class="modal-content" id="modalContent" onclick="event.stopPropagation()">
+    </div>
+  </div>
+
+  <script src="./index.js"></script>
+
+</body>
+
+</html>

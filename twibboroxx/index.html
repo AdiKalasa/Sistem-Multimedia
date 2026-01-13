@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twibbox - Platform Desain Twibbon untuk UMKM</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./koreksi.css">
+</head> 
+<body>
+    <!-- Particle Balpckground -->
+    <div id="particles"></div>
+ 
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="navigateTo('home')">
+                <div class="logo-icon"></div>
+                <span class="bsans">Twibbox</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" onclick="navigateTo('home')">Beranda</a></li>
+                <li><a href="#" onclick="navigateTo('catalog')">Katalog</a></li>
+                <li><a href="#" onclick="navigateTo('pricing')">Harga</a></li>
+            </ul>
+            <a href="#" class="nav-cta" onclick="navigateTo('pricing')">Upgrade Pro</a>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="homePage" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Buat <span class="gradient-text">Twibbon Produk</span> untuk Bisnismu dalam Hitungan Detik</h1>
+                <p>Platform desain twibbon terlengkap untuk UMKM. Tanpa skill desain, tanpa ribet. Cukup upload foto produk dan pilih template favorit!</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary" onclick="navigateTo('catalog')">Mulai Sekarang</a>
+                    <a href="#" class="btn btn-secondary" onclick="navigateTo('pricing')">Lihat Harga</a>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats">
+                    <div class="stat-card">
+                        <h3>1000+</h3>
+                        <p>UMKM Bergabung</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>50+</h3>
+                        <p>Template Premium</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>5000+</h3>
+                        <p>Desain Dibuat</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Kenapa Pilih Twibbox?</h2>
+                    <p>Solusi desain twibbon profesional untuk meningkatkan branding produkmu</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Cepat & Mudah</h3>
+                        <p>Buat desain twibbon hanya dalam 3 langkah sederhana. Tidak perlu skill desain grafis atau software rumit.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>50+ Template Premium</h3>
+                        <p>Koleksi template profesional yang selalu update. Dari minimalis hingga colorful, semua ada di sini.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📸</div>
+                        <h3>Kualitas HD</h3>
+                        <p>Export desain dalam resolusi tinggi hingga 2000x2000px. Siap untuk media sosial dan promosi online.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Siap Membuat Twibbon Profesional?</h2>
+                <p>Bergabung dengan ribuan UMKM yang sudah meningkatkan branding produk mereka</p>
+                <a href="#" class="btn btn-primary" onclick="navigateTo('catalog')">Mulai Gratis Sekarang</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Catalog Page -->
+    <div id="catalogPage" class="page">
+        <div class="catalog-header">
+            <h1>Katalog Template</h1>
+            <p>Pilih dari 50+ template profesional yang siap pakai</p>
+        </div>
+
+        <div class="catalog-content">
+            <div class="container">
+                <!-- Search & Filter -->
+                <div class="search-filter">
+                    <input type="text" class="search-bar" id="searchBar" placeholder="🔍 Cari template..." onkeyup="filterTemplates()">
+                    <div class="filter-section">
+                        <div class="filter-group">
+                            <label>Kategori</label>
+                            <select id="categoryFilter" onchange="filterTemplates()">
+                                <option value="">Semua Kategori</option>
+                                <option value="minimalis">Minimalis</option>
+                                <option value="colorful">Colorful</option>
+                                <option value="elegant">Elegant</option>
+                                <option value="fun">Fun</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Occasion</label>
+                            <select id="occasionFilter" onchange="filterTemplates()">
+                                <option value="">Semua Occasion</option>
+                                <option value="promo">Promo</option>
+                                <option value="grand-opening">Grand Opening</option>
+                                <option value="new-product">New Product</option>
+                                <option value="umum">Umum</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Tier</label>
+                            <select id="tierFilter" onchange="filterTemplates()">
+                                <option value="">Semua Tier</option>
+                                <option value="free">Free</option>
+                                <option value="premium">Premium</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Templates Grid -->
+                <div class="templates-grid" id="templatesGrid"></div>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Editor Page -->
+    <div id="editorPage" class="page">
+        <div class="editor-container">
+            <!-- Preview Section -->
+            <div class="preview-section">
+                <h2 style="color: white; margin-bottom: 1.5rem; text-align: center;">Live Preview</h2>
+                <div class="preview-canvas" id="previewCanvas">
+                    <!-- TAMBAHKAN layer background di posisi paling bawah -->
+                    <div id="backgroundLayer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background-color: #FFFFFF;"></div>
+                    
+                    <!-- User image (z-index: 2) -->
+                    <img id="userImage" class="image-layer" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
+                    
+                    <!-- Template layer PNG (z-index: 3) -->
+                    <div id="templateLayer" class="template-layer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 3;"></div>
+                </div>
+                <canvas id="downloadCanvas" style="display: none;"></canvas>
+            </div>
+
+            <!-- Controls Section -->
+            <div class="controls-section">
+                <h2>Kontrol Editor</h2>
+
+                <!-- Upload Button -->
+                <div class="control-buttons">
+                    <button class="btn-full btn-upload" onclick="document.getElementById('fileInput').click()">
+                        📤 Upload Foto Produk
+                    </button>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="handleImageUpload(event.target.files)">
+                </div>
+
+                <div class="control-group">
+                    <label>
+                        <span>🎨 Warna Background</span>
+                        <span class="control-value" id="bgColorValue">#FFFFFF</span>
+                    </label>
+                    <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 10px;">
+                        <input type="color" id="bgColorPicker" value="#FFFFFF" 
+                            oninput="updateBackgroundColor()" 
+                            style="width: 60px; height: 60px; border: 3px solid #ddd; border-radius: 10px; cursor: pointer;">
+                        <input type="text" id="bgColorInput" value="#FFFFFF" 
+                            oninput="updateBackgroundColorFromInput()"
+                            placeholder="#FFFFFF"
+                            style="flex: 1; padding: 10px; border: 2px solid #ddd; border-radius: 8px; font-family: monospace; font-size: 14px;">
+                    </div>
+                    <div id="colorPresets" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;"></div>
+                </div>
+
+                <!-- Image Controls -->
+                <div id="imageControls" style="display: none;">
+                    <div class="control-group">
+                        <label>Ukuran / Zoom <span class="control-value" id="scaleValue">100%</span></label>
+                        <input type="range" id="scaleControl" min="50" max="200" value="100" oninput="updateImageTransform()">
+                    </div>
+
+                    <div class="control-group">
+                        <label>Rotasi <span class="control-value" id="rotationValue">0°</span></label>
+                        <input type="range" id="rotationControl" min="0" max="360" value="0" oninput="updateImageTransform()">
+                    </div>
+
+                    <div class="control-group">
+                        <label>Kecerahan <span class="control-value" id="brightnessValue">100%</span></label>
+                        <input type="range" id="brightnessControl" min="50" max="150" value="100" oninput="updateImageTransform()">
+                    </div>
+
+                    <div class="control-group">
+                        <label>Posisi Horizontal <span class="control-value" id="posXValue">50%</span></label>
+                        <input type="range" id="posXControl" min="0" max="100" value="50" oninput="updateImageTransform()">
+                    </div>
+
+                    <div class="control-group">
+                        <label>Posisi Vertikal <span class="control-value" id="posYValue">50%</span></label>
+                        <input type="range" id="posYControl" min="0" max="100" value="50" oninput="updateImageTransform()">
+                    </div>
+
+                    <div class="control-buttons">
+                        <button class="btn-full btn-upload" onclick="document.getElementById('fileInput').click()">
+                            🔄 Ganti Foto
+                        </button>
+                        <button class="btn-full btn-download" onclick="downloadImage()">
+                            💾 Download PNG
+                        </button>
+                        <button class="btn-full btn-reset" onclick="resetControls()">
+                            ↺ Reset Pengaturan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tips Box -->
+                <div class="tips-box">
+                    <h4>💡 Tips:</h4>
+                    <ul>
+                        <li>Gunakan foto produk dengan latar belakang polos</li>
+                        <li>Pastikan pencahayaan foto cukup terang</li>
+                        <li>Atur posisi dan ukuran agar produk terlihat jelas</li>
+                        <li>Download dalam format PNG untuk kualitas terbaik</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Page -->
+    <div id="pricingPage" class="page">
+        <div class="pricing-header">
+            <h1>Pilih Paket yang Tepat</h1>
+            <p>Mulai gratis atau upgrade untuk fitur unlimited</p>
+        </div>
+
+        <div class="pricing-content">
+            <div class="container">
+                <!-- Pricing Cards -->
+                <div class="pricing-grid">
+                    <!-- Free Plan -->
+                    <div class="pricing-card">
+                        <h3>Free</h3>
+                        <div class="price">Rp 0<span>/bulan</span></div>
+                        <p class="description">Cocok untuk pemula yang ingin mencoba</p>
+                        <ul class="pricing-features">
+                            <li>5 desain per bulan</li>
+                            <li>20+ template gratis</li>
+                            <li>Export 1080x1080px</li>
+                            <li>Watermark Twibbox</li>
+                            <li>Support email</li>
+                        </ul>
+                        <button class="btn btn-secondary" onclick="navigateTo('catalog')">Mulai Gratis</button>
+                    </div>
+
+                    <!-- Premium Plan -->
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">POPULER</div>
+                        <h3>Premium</h3>
+                        <div class="price">Rp 99K<span>/bulan</span></div>
+                        <p class="description">Untuk UMKM yang serius dengan branding</p>
+                        <ul class="pricing-features">
+                            <li>Unlimited desain</li>
+                            <li>50+ template premium</li>
+                            <li>Export 2000x2000px HD</li>
+                            <li>Tanpa watermark</li>
+                            <li>AI Background Removal</li>
+                            <li>Custom template request</li>
+                            <li>Priority support 24/7</li>
+                        </ul>
+                        <button class="btn btn-primary">Upgrade Sekarang</button>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="faq-section">
+                    <h2>Pertanyaan Umum</h2>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            Apakah saya bisa mencoba Premium gratis?
+                        </div>
+                        <div class="faq-answer">
+                            <p>Ya! Kami menyediakan trial 7 hari untuk paket Premium. Anda bisa mencoba semua fitur tanpa perlu kartu kredit. Jika tidak cocok, bisa langsung batalkan sebelum periode trial berakhir.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            Bagaimana cara pembayaran?
+                        </div>
+                        <div class="faq-answer">
+                            <p>Kami menerima berbagai metode pembayaran: transfer bank, e-wallet (GoPay, OVO, Dana), dan kartu kredit. Semua transaksi dijamin aman dengan enkripsi SSL.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            Apakah template terus diupdate?
+                        </div>
+                        <div class="faq-answer">
+                            <p>Tentu! Kami menambahkan 5-10 template baru setiap bulan. Member Premium juga bisa request custom template sesuai kebutuhan bisnis mereka.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            Bisakah saya downgrade dari Premium ke Free?
+                        </div>
+                        <div class="faq-answer">
+                            <p>Ya, Anda bisa downgrade kapan saja. Namun desain yang sudah dibuat tetap bisa diakses, hanya kuota bulanan yang akan mengikuti paket Free.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            Apakah ada diskon untuk berlangganan tahunan?
+                        </div>
+                        <div class="faq-answer">
+                            <p>Ya! Berlangganan tahunan mendapat diskon 20%. Hanya Rp 950K per tahun (setara Rp 79K/bulan). Hemat Rp 238K dibanding berlangganan bulanan!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Produk</h4>
+                <ul>
+                    <li><a href="#" onclick="navigateTo('catalog')">Katalog Template</a></li>
+                    <li><a href="#" onclick="navigateTo('pricing')">Harga</a></li>
+                    <li><a href="#">Template Gratis</a></li>
+                    <li><a href="#">Template Premium</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Dukungan</h4>
+                <ul>
+                    <li><a href="#">Pusat Bantuan</a></li>
+                    <li><a href="#">Tutorial</a></li>
+                    <li><a href="#">Kontak Kami</a></li>
+                    <li><a href="#">Status Server</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                    <li><a href="#">Kebijakan Refund</a></li>
+                    <li><a href="#">Lisensi</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Tentang</h4>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Karir</a></li>
+                    <li><a href="#">Partner</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Twibbox. All rights reserved. Made with ❤️ for Indonesian UMKM</p>
+        </div>
+    </footer>
+    <script src="./index.js"></script>
+</body>
+</html>

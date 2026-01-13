@@ -1,0 +1,13 @@
+.template-preview{
+    
+    background-position: center !important;
+    background-size: contain !important;
+    background-repeat: no-repeat;
+    /* aspect-ratio: 0; */
+}
+
+.template-layer{
+    background-position: center !important;
+    background-size: contain !important;
+
+}
