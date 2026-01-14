@@ -717,44 +717,225 @@ p {
 
 
 @media(max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Perbaiki padding slide agar tidak terlalu besar */
   .slide { 
-    padding: 40px 20px; 
+    padding: 60px 20px 120px 20px;
+    justify-content: flex-start;
+    padding-top: 80px;
   }
   
+  /* Perbaiki ukuran heading */
   h1 { 
-    font-size: 2.2rem; 
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
   }
   
+  /* Perbaiki ukuran paragraf */
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  /* Grid menjadi 1 kolom */
   .grid { 
     grid-template-columns: 1fr;
     gap: 20px;
+    width: 100%;
+  }
+  
+  .gridW {
+    width: 100%;
+  }
+  
+  /* Perbaiki tombol navigasi */
+  .nav {
+    bottom: 20px;
+    gap: 10px;
   }
   
   .nav button { 
-    padding: 12px 30px;
-    font-size: 0.9rem;
+    padding: 10px 25px;
+    font-size: 0.85rem;
   }
   
+  /* Perbaiki modal untuk mobile */
   .modal-content {
-    padding: 30px 20px;
+    padding: 25px 15px;
+    width: 95%;
+    max-width: none;
   }
   
+  .modal-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  /* Perbaiki media placeholder */
   .media-placeholder {
-    height: 250px;
+    height: 200px;
+    font-size: 2.5rem;
+  }
+  
+  .media-placeholder::after {
+    font-size: 0.85rem;
+    bottom: 10px;
+  }
+  
+  /* Perbaiki card image */
+  .card-image {
+    height: 180px;
+    font-size: 2.5rem;
+  }
+  
+  .card-image i {
+    font-size: 2.5rem;
+  }
+  
+  /* Perbaiki progress dots */
+  .progress-dots {
+    top: 15px;
+    padding: 8px 15px;
+    gap: 8px;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .dot.active {
+    width: 28px;
+  }
+  
+  /* Perbaiki About Section untuk mobile */
+  .about-container {
+    gap: 25px;
+    padding: 0;
+  }
+  
+  .about-profile {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
     font-size: 3rem;
+  }
+  
+  .profile-info h2 {
+    font-size: 1.8rem;
+  }
+  
+  .profile-info .role {
+    font-size: 1rem;
+  }
+  
+  .profile-details p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Perbaiki card content */
+  .card-content {
+    padding: 20px;
+  }
+  
+  .card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .card p {
+    font-size: 0.85rem;
+  }
+  
+  /* Perbaiki video di modal */
+  .modal-content video {
+    max-height: 300px;
+  }
+  
+  /* Hilangkan key hint di mobile */
+  .key-hint {
+    display: none;
+  }
+}
+
+@media(max-width: 480px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  .slide {
+    padding: 60px 15px 100px 15px;
+  }
+  
+  .nav button {
+    padding: 8px 20px;
+    font-size: 0.8rem;
+  }
+  
+  .profile-image {
+    width: 120px;
+    height: 120px;
+    font-size: 2.5rem;
+  }
+  
+  .profile-info h2 {
+    font-size: 1.5rem;
   }
   
   .card-image {
     height: 160px;
-    font-size: 3rem;
-  }
-  
-  .progress-dots {
-    top: 20px;
-    padding: 10px 20px;
   }
 }
 
+/* Perbaikan untuk landscape mode di mobile */
+@media(max-width: 768px) and (orientation: landscape) {
+  .slide {
+    padding: 40px 20px 80px 20px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .about-profile {
+    flex-direction: row;
+    text-align: left;
+  }
+  
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .profile-details p {
+    text-align: left;
+  }
+}
 
 .slide h1::before {
   content: '';

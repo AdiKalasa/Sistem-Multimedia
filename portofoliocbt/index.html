@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Twibbox Portfolio</title>
+  <title>CBT Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="./index.css">
 </head> 
 
 <body>
@@ -17,30 +17,22 @@
   <div class="slider" id="slider">
 
     <section class="slide">
-      <h1>Twibbox</h1>
-      <p>Platform web untuk UMKM membuat desain twibbon dengan mudah. Menyediakan 50+ template, editor intuitif, dan
-        ekspor HD untuk konten promosi visual yang profesional.</p>
+      <h1>Computer Based Test</h1>
+      <p>Selamat datang di web portofolio CBT (Computer Based Test). Website ini dibuat untuk menampilkan sistem ujian berbasis komputer yang mendukung proses evaluasi secara efisien, modern, dan terstruktur.</p>
     </section>
 
     <section class="slide">
-      <h1>Tentang Twibbox</h1>
-      <p>Twibbox membantu UMKM mengatasi kesulitan membuat konten promosi visual dengan menyediakan template siap pakai,
-        editor gambar lengkap, dan sistem pencarian/filter. Dibangun dengan HTML/CSS/JS murni, tema space galaxy, dan
-        fitur export kualitas tinggi</p>
-      <div class="grid gridW">
-        <img src="asset/twibbon-Blue & Yellow Pngtree-1768286926150.png" class="card-image" alt="">
-        <img src="asset/twibbon-Builder _ Constructor-1768286943651.png" class="card-image" alt="">
-        <img src="asset/twibbon-Fruit-1768287662815.png" class="card-image" alt="">
-      </div>
+      <h1>Tentang CBT</h1>
+      <p>Proyek CBT (Computer Based Test) merupakan aplikasi ujian berbasis komputer yang dirancang untuk memudahkan pengelolaan soal, peserta, pelaksanaan ujian, serta penilaian hasil secara otomatis. Sistem ini bertujuan meningkatkan efektivitas pelaksanaan ujian dan meminimalkan penggunaan kertas, sehingga lebih praktis dan akurat.</p>
     </section>
 
     <section class="slide">
       <h1>Fitur Utama</h1>
       <div class="grid">
         <div class="card"
-          onclick="showFeature('Navigasi Slide', 'slide.webm', 'Perpindahan antar halaman dengan animasi halus dan modern menggunakan CSS transitions.')">
+          onclick="showFeature('Navigasi Slide', 'cbtsn.webm', 'Perpindahan antar halaman dengan animasi halus dan modern menggunakan CSS transitions.')">
           <video class="card-image" autoplay muted loop playsinline>
-            <source src="asset/slide.webm" type="video/webm">
+            <source src="asset/cbtsn.webm" type="video/webm">
           </video>
           <div class="card-content">
             <h3>Smooth Navigation</h3>
@@ -48,9 +40,9 @@
           </div>
         </div>
         <div class="card"
-          onclick="showFeature('Responsive Layout', 'responsive.webm','Tampilan otomatis menyesuaikan ukuran layar perangkat dari mobile hingga desktop.')">
+          onclick="showFeature('Responsive Layout', 'cbtr.webm','Tampilan otomatis menyesuaikan ukuran layar perangkat dari mobile hingga desktop.')">
           <video class="card-image" autoplay muted loop playsinline>
-            <source src="asset/responsive.webm" type="video/webm">
+            <source src="asset/cbtr.webm" type="video/webm">
           </video>
           <div class="card-content">
             <h3>Responsive</h3>
@@ -58,23 +50,36 @@
           </div>
         </div>
         <div class="card"
-          onclick="showFeature('Drag & Drop', 'dragNdrop.webm', 'Fitur interaksi drag and drop yang memungkinkan pengguna memindahkan elemen secara langsung dengan respons cepat dan intuitif tanpa reload halaman.')">
+          onclick="showFeature('Import Sheet', 'cbtimport.webm', 'Fitur Import Data dari Sheet memungkinkan pengguna mengimpor data spreadsheet dengan cepat dan mudah, dengan pemetaan kolom otomatis tanpa reload halaman.')">
           <video class="card-image" autoplay muted loop playsinline>
-            <source src="asset/dragNdrop.webm" type="video/webm">
+            <source src="asset/cbtimport.webm" type="video/webm">
           </video>
           <div class="card-content">
-            <h3>Drag & Drop</h3>
+            <h3>Import From Sheet</h3>
             <p>Klik untuk detail</p>
           </div>
         </div>
       </div>
     </section>
-
+    <a href="http://" target="_blank" rel="noopener noreferrer"></a>
     <section class="slide">
       <h1>Gallery Media</h1>
-      <div class="">
-        <div class="card" onclick="showVideo('Demo Aplikasi')">
-          <img src="asset/desktop2.png" class="card-image" alt="">
+      <div class="grid">
+        <div class="card" onclick="showImage('Tampilan Login Admin', 'login.png')">
+          <img src="asset/login.png" class="card-image" alt="">
+          <div class="card-content">
+            <h3>Tampilan Login Admin</h3>
+            <p>Lihat gambar</p>
+          </div>
+        </div><div class="card" onclick="showImage('Tampilan Dashboard Admin', 'cbtd.png')">
+          <img src="asset/cbtd.png" class="card-image" alt="">
+          <div class="card-content">
+            <h3>Tampilan Dashboard Admin</h3>
+            <p>Lihat gambar</p>
+          </div>
+        </div>
+        <div class="card" onclick="showVideo('Cara Login Admin')">
+          <img src="asset/cbtd.png" class="card-image" alt="">
           <div class="card-content">
             <h3>Video Demo App</h3>
             <p>Lihat video</p>
@@ -89,7 +94,7 @@
             <img class="profile-image" src="asset/7Xism.jpg" alt="">
             <div class="profile-info">
               <h2>Adi Kalasa</h2>
-              <div class="role">Full Stack Developer & UI/UX Designer <span style="color: hsl(240, 18%, 20%);">(cuman tugas)</span></div>
+              <div class="role">Full Stack Developer & UI/UX Designer <span style="color: var(--neumorph-light);">(cuman tugas)</span></div>
               <div class="profile-details">
                 <p><i class="fas fa-map-marker-alt" style="color: var(--accent); margin-right: 10px;"></i> Bekasi, Indonesia</p>
                 <p><i class="fas fa-graduation-cap" style="color: var(--accent); margin-right: 10px;"></i> Teknik Informatika - STMIK Mercusuar</p>
